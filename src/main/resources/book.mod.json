@@ -1,0 +1,9 @@
+[
+  {
+    "name": "ExampleMod",
+    "author": "ChachyDev",
+    "version": "0.0.1",
+    "entrypoint": "com.example.ExampleMod::start",
+    "mixin_entrypoint": "examplemod.mixins.json"
+  }
+]

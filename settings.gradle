@@ -1,0 +1,21 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        maven { url "https://jitpack.io/" }
+        maven {
+            name = "forge"
+            url = "https://files.minecraftforge.net/maven"
+        }
+        gradlePluginPortal()
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "net.minecraftforge.gradle.tweaker-client") {
+                useModule("com.github.asbyth:ForgeGradle:${requested.version}")
+            }
+        }
+    }
+}
+
+rootProject.name = 'book-example-mod'
+
