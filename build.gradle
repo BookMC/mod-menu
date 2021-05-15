@@ -21,7 +21,7 @@ dependencies {
     // Required for launching
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib"
 
-    compileOnly "com.github.BookMC:modding:4122e1a17c"
+    compileOnly "com.github.BookMC:modding:edb7f0ee8e"
     compileOnly "com.github.BookMC:loader:82400b61b6"
 
     compileOnly "com.github.BookMC.minecraft:client:942199a5f1"

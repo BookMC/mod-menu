@@ -15,7 +15,7 @@ import java.awt.Color
 
 private const val DEFAULT_TEXT_CONTAINER_WIDTH = 15
 
-class ModMenuScreen(vessels: List<ModVessel>) : WindowScreen() {
+class ModMenuScreen(vessels: List<ModVessel>) : WindowScreen(newGuiScale = 3) {
     private val selectedColor = Color(1, 165, 82)
 
     private val isWorldAvailable get() = Minecraft.getMinecraft().theWorld != null
@@ -51,32 +51,27 @@ class ModMenuScreen(vessels: List<ModVessel>) : WindowScreen() {
                 height = 80.percent()
             } effect OutlineEffect(Color.DARK_GRAY, 1f) childOf this
 
-            var selected: UIComponent? = null
+            generateModList(vessels, modsContainer, modDataContainer)
+        }
+    }
 
-            vessels.forEachIndexed { index, modVessel ->
-                val textColor = if (index == 0) selectedColor else Color.GRAY
+    private fun generateModList(vessels: List<ModVessel>, modsContainer: UIContainer, modDataContainer: UIContainer) {
+        var selected: UIComponent? = null
 
-                val text = UIText(modVessel.name).constrain {
-                    color = textColor.toConstraint()
-                    y = SiblingConstraint(8f)
-                } childOf modsContainer
+        vessels.forEachIndexed { index, modVessel ->
+            val textColor = if (index == 0) selectedColor else Color.GRAY
 
-                text.onMouseClick {
-                    if (selected != text) {
-                        selected?.setColor(Color.GRAY.toConstraint())
-                        text.setColor(selectedColor.toConstraint())
+            val text = UIText(modVessel.name).constrain {
+                color = textColor.toConstraint()
+                y = SiblingConstraint(8f)
+            } childOf modsContainer
 
-                        modDataContainer.clearChildren()
-                        GeneratedModDataComponent(modVessel).constrain {
-                            height = 100.percent()
-                            width = 100.percent()
-                        } childOf modDataContainer
+            text.onMouseClick {
+                if (selected != text) {
+                    selected?.setColor(Color.GRAY.toConstraint())
+                    text.setColor(selectedColor.toConstraint())
 
-                        selected = text
-                    }
-                }
-
-                if (index == 0) {
+                    modDataContainer.clearChildren()
                     GeneratedModDataComponent(modVessel).constrain {
                         height = 100.percent()
                         width = 100.percent()
@@ -84,6 +79,15 @@ class ModMenuScreen(vessels: List<ModVessel>) : WindowScreen() {
 
                     selected = text
                 }
+            }
+
+            if (index == 0) {
+                GeneratedModDataComponent(modVessel).constrain {
+                    height = 100.percent()
+                    width = 100.percent()
+                } childOf modDataContainer
+
+                selected = text
             }
         }
     }
