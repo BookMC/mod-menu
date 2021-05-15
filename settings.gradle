@@ -17,5 +17,5 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'book-example-mod'
+rootProject.name = 'mod-menu'
 

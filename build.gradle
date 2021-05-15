@@ -1,29 +1,38 @@
 plugins {
     id "java"
+    id "org.jetbrains.kotlin.jvm" version "1.5.0"
     id "net.minecraftforge.gradle.tweaker-client" version "86b2392"
 }
 
-group "com.example"
-version "1.0.0"
+group "org.bookmc"
+version "0.0.1"
 
 repositories {
     mavenCentral()
     maven {
         url "https://jitpack.io"
     }
+    maven {
+        url = "https://repo.sk1er.club/repository/maven-public"
+    }
 }
 
 dependencies {
     // Required for launching
-    compileOnly "com.github.BookMC:modding:c03f14153c"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib"
+
+    compileOnly "com.github.BookMC:modding:4122e1a17c"
     compileOnly "com.github.BookMC:loader:82400b61b6"
 
-    compileOnly "com.github.BookMC.minecraft:client:6ed1506f35"
+    compileOnly "com.github.BookMC.minecraft:client:942199a5f1"
+
+    implementation "com.github.BookMC.utils:elementa:ca71c7591f"
+    compileOnly "club.sk1er:Elementa:271-10809-SNAPSHOT"
 }
 
 minecraft {
     version = "1.8.9"
-    tweakClass = "org.bookmc.loader.BookMCLoader"
+    tweakClass = "org.bookmc.loader.BookMCClientLoader"
     mappings = "stable_22"
     runDir = "run"
     makeObfSourceJar = false

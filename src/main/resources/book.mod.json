@@ -1,9 +1,16 @@
 [
   {
-    "name": "ExampleMod",
-    "author": "ChachyDev",
+    "name": "Mod Menu",
+    "id": "mod-menu",
+    "description": "A simple mod to add a \"Mods\" GUI into the game",
+    "authors": [
+      "BookMC"
+    ],
     "version": "0.0.1",
-    "entrypoint": "com.example.ExampleMod::start",
-    "mixin_entrypoint": "examplemod.mixins.json"
+    "entrypoint": "org.bookmc.menu.Entrypoint::start",
+    "mixin_entrypoint": "modmenu.mixins.json",
+    "dependencies": [
+      "elementa"
+    ]
   }
 ]

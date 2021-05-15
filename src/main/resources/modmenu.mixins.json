@@ -1,11 +1,11 @@
 {
   "required": true,
   "compatibilityLevel": "JAVA_8",
-  "package": "com.example.mixins",
-  "refmap": "mixin.examplemod.refmap.json",
+  "package": "org.bookmc.menu.mixins",
+  "refmap": "mixin.modmenu.refmap.json",
   "minVersion": "0.7.11",
   "verbose": true,
   "mixins": [
-    "client.MixinMinecraft"
+    "client.gui.MixinGuiMainMenu"
   ]
 }
