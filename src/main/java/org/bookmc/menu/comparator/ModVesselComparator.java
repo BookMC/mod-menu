@@ -9,6 +9,6 @@ public class ModVesselComparator implements Comparator<ModVessel> {
 
     @Override
     public int compare(ModVessel o1, ModVessel o2) {
-        return Integer.compare(o2.getName().length(), o1.getName().length());
+        return Integer.compare(o1.getName().length(), o2.getName().length());
     }
 }

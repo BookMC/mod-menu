@@ -1,13 +1,13 @@
 package org.bookmc.menu.gui
 
-import club.sk1er.elementa.UIComponent
-import club.sk1er.elementa.WindowScreen
-import club.sk1er.elementa.components.UIBlock
-import club.sk1er.elementa.components.UIContainer
-import club.sk1er.elementa.components.UIText
-import club.sk1er.elementa.constraints.SiblingConstraint
-import club.sk1er.elementa.dsl.*
-import club.sk1er.elementa.effects.OutlineEffect
+import gg.essential.elementa.UIComponent
+import gg.essential.elementa.WindowScreen
+import gg.essential.elementa.components.UIBlock
+import gg.essential.elementa.components.UIContainer
+import gg.essential.elementa.components.UIText
+import gg.essential.elementa.constraints.SiblingConstraint
+import gg.essential.elementa.dsl.*
+import gg.essential.elementa.effects.OutlineEffect
 import net.minecraft.client.Minecraft
 import org.bookmc.loader.vessel.ModVessel
 import org.bookmc.menu.gui.generated.GeneratedModDataComponent

@@ -2,6 +2,8 @@ plugins {
     id "java"
     id "org.jetbrains.kotlin.jvm" version "1.5.0"
     id "net.minecraftforge.gradle.tweaker-client" version "86b2392"
+    id "org.spongepowered.mixin" version "d5f9873d60"
+    id "org.bookmc.ink" version "f3136d5ab7"
 }
 
 group "org.bookmc"
@@ -10,30 +12,21 @@ version "0.0.1"
 repositories {
     mavenCentral()
     maven {
-        url "https://jitpack.io"
-    }
-    maven {
         url = "https://repo.sk1er.club/repository/maven-public"
     }
 }
 
 dependencies {
-    // Required for launching
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib"
-
-    compileOnly "com.github.BookMC:modding:edb7f0ee8e"
-    compileOnly "com.github.BookMC:loader:82400b61b6"
-
-    compileOnly "com.github.BookMC.minecraft:client:942199a5f1"
-
-    implementation "com.github.BookMC.utils:elementa:ca71c7591f"
-    compileOnly "club.sk1er:Elementa:271-10809-SNAPSHOT"
+    modDependency "com.github.BookMC.language-packs:elementa-pack:187de6b005"
 }
 
-minecraft {
-    version = "1.8.9"
-    tweakClass = "org.bookmc.loader.BookMCClientLoader"
-    mappings = "stable_22"
-    runDir = "run"
-    makeObfSourceJar = false
+mixin {
+    // Specify "notch" or "searge" here
+    defaultObfuscationEnv searge
+    add sourceSets.main, "mixin.modmenu.refmap.json"
+}
+
+
+jar {
+    manifest.attributes("MixinConfigs": "modmenu.mixins.json")
 }
