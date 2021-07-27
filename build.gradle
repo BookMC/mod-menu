@@ -3,7 +3,7 @@ plugins {
     id "org.jetbrains.kotlin.jvm" version "1.5.0"
     id "net.minecraftforge.gradle.tweaker-client" version "86b2392"
     id "org.spongepowered.mixin" version "d5f9873d60"
-    id "org.bookmc.ink" version "f3136d5ab7"
+    id "org.bookmc.ink" version "7774ae35db"
 }
 
 group "org.bookmc"

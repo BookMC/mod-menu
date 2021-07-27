@@ -1,6 +1,6 @@
 package org.bookmc.menu.comparator;
 
-import org.bookmc.loader.vessel.ModVessel;
+import org.bookmc.loader.api.vessel.ModVessel;
 
 import java.util.Comparator;
 

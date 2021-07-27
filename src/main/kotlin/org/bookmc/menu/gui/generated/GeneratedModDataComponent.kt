@@ -11,7 +11,7 @@ import gg.essential.elementa.dsl.pixels
 import gg.essential.elementa.dsl.toConstraint
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen
-import org.bookmc.loader.vessel.ModVessel
+import org.bookmc.loader.api.vessel.ModVessel
 import java.awt.Color
 
 class GeneratedModDataComponent(mod: ModVessel) : UIComponent() {

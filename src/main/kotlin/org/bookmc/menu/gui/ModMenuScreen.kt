@@ -9,7 +9,7 @@ import gg.essential.elementa.constraints.SiblingConstraint
 import gg.essential.elementa.dsl.*
 import gg.essential.elementa.effects.OutlineEffect
 import net.minecraft.client.Minecraft
-import org.bookmc.loader.vessel.ModVessel
+import org.bookmc.loader.api.vessel.ModVessel
 import org.bookmc.menu.gui.generated.GeneratedModDataComponent
 import java.awt.Color
 
