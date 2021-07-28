@@ -3,18 +3,16 @@ package org.bookmc.menu.gui.generated
 import gg.essential.elementa.UIComponent
 import gg.essential.elementa.components.UIImage
 import gg.essential.elementa.components.UIText
+import gg.essential.elementa.components.UIWrappedText
 import gg.essential.elementa.constraints.CenterConstraint
 import gg.essential.elementa.constraints.SiblingConstraint
-import gg.essential.elementa.dsl.childOf
-import gg.essential.elementa.dsl.constrain
-import gg.essential.elementa.dsl.pixels
-import gg.essential.elementa.dsl.toConstraint
+import gg.essential.elementa.dsl.*
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiScreen
 import org.bookmc.loader.api.vessel.ModVessel
 import java.awt.Color
 
-class GeneratedModDataComponent(mod: ModVessel) : UIComponent() {
+class ModComponent(mod: ModVessel) : UIComponent() {
     init {
         val clazz = mod.config?.let { Class.forName(it) }
 
@@ -41,22 +39,25 @@ class GeneratedModDataComponent(mod: ModVessel) : UIComponent() {
         }
 
         if (mod.description != null) {
-            UIText(mod.description).constrain {
+            UIWrappedText(mod.description, centered = true).constrain {
                 x = CenterConstraint()
                 y = SiblingConstraint(5f)
+                width = 65.percentOfWindow()
                 color = Color.GRAY.toConstraint()
             } childOf this
         }
 
-        UIText("Created by ${mod.authors.joinToString()}").constrain {
+        UIWrappedText("Created by ${mod.authors.joinToString()}", centered = true).constrain {
             x = CenterConstraint()
             y = SiblingConstraint(5f)
+            width = 65.percentOfWindow()
             color = Color.GRAY.toConstraint()
         } childOf this
 
-        UIText("Version: ${mod.version}").constrain {
+        UIWrappedText("Version: ${mod.version}", centered = true).constrain {
             x = CenterConstraint()
-            y = SiblingConstraint()
+            y = SiblingConstraint(5f)
+            width = 65.percentOfWindow()
             color = Color.GRAY.toConstraint()
         } childOf this
     }

@@ -10,7 +10,7 @@ import gg.essential.elementa.dsl.*
 import gg.essential.elementa.effects.OutlineEffect
 import net.minecraft.client.Minecraft
 import org.bookmc.loader.api.vessel.ModVessel
-import org.bookmc.menu.gui.generated.GeneratedModDataComponent
+import org.bookmc.menu.gui.generated.ModComponent
 import java.awt.Color
 
 private const val DEFAULT_TEXT_CONTAINER_WIDTH = 15
@@ -22,8 +22,9 @@ class ModMenuScreen(vessels: List<ModVessel>) : WindowScreen(newGuiScale = 3) {
 
     private val background get() = if (isWorldAvailable) Color(0, 0, 0, 50) else Color(27, 27, 27)
 
+
     init {
-        val block = UIBlock(background).constrain {
+        val block by UIBlock(background).constrain {
             width = 100.percent()
             height = 100.percent()
         } childOf window
@@ -35,7 +36,7 @@ class ModMenuScreen(vessels: List<ModVessel>) : WindowScreen(newGuiScale = 3) {
                 textScale = 2.pixels()
             } childOf this
 
-            val modsContainer = UIContainer().constrain {
+            val modsContainer by UIContainer().constrain {
                 x = 15.pixels()
                 y = SiblingConstraint(8f)
                 height = (vessels.size * 10).percent()
@@ -44,7 +45,7 @@ class ModMenuScreen(vessels: List<ModVessel>) : WindowScreen(newGuiScale = 3) {
                         ?: DEFAULT_TEXT_CONTAINER_WIDTH) * 4).percent()
             } childOf this
 
-            val modDataContainer = UIContainer().constrain {
+            val modDataContainer by UIContainer().constrain {
                 x = 20.percent()
                 y = 10.percent()
                 width = 75.percent()
@@ -72,7 +73,7 @@ class ModMenuScreen(vessels: List<ModVessel>) : WindowScreen(newGuiScale = 3) {
                     text.setColor(selectedColor.toConstraint())
 
                     modDataContainer.clearChildren()
-                    GeneratedModDataComponent(modVessel).constrain {
+                    ModComponent(modVessel).constrain {
                         height = 100.percent()
                         width = 100.percent()
                     } childOf modDataContainer
@@ -82,7 +83,7 @@ class ModMenuScreen(vessels: List<ModVessel>) : WindowScreen(newGuiScale = 3) {
             }
 
             if (index == 0) {
-                GeneratedModDataComponent(modVessel).constrain {
+                ModComponent(modVessel).constrain {
                     height = 100.percent()
                     width = 100.percent()
                 } childOf modDataContainer
