@@ -13,8 +13,6 @@ import org.bookmc.loader.api.vessel.ModVessel
 import org.bookmc.menu.gui.generated.ModComponent
 import java.awt.Color
 
-private const val DEFAULT_TEXT_CONTAINER_WIDTH = 15
-
 class ModMenuScreen(vessels: List<ModVessel>) : WindowScreen(newGuiScale = 3) {
     private val selectedColor = Color(1, 165, 82)
 
@@ -82,6 +80,14 @@ class ModMenuScreen(vessels: List<ModVessel>) : WindowScreen(newGuiScale = 3) {
                 }
             }
 
+            text.onMouseEnter {
+                text.setColor(Color.DARK_GRAY.toConstraint())
+            }
+
+            text.onMouseLeave {
+                text.setColor(Color.GRAY.toConstraint())
+            }
+
             if (index == 0) {
                 ModComponent(modVessel).constrain {
                     height = 100.percent()
@@ -91,5 +97,9 @@ class ModMenuScreen(vessels: List<ModVessel>) : WindowScreen(newGuiScale = 3) {
                 selected = text
             }
         }
+    }
+
+    companion object {
+        private const val DEFAULT_TEXT_CONTAINER_WIDTH = 15
     }
 }

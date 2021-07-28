@@ -6,5 +6,5 @@
 
 A simple BookMC mod which adds a mod menu into the game.
 
-#Screenshots:
+# Screenshots:
 ![Mod Menu](.github/img.png)
