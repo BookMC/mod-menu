@@ -68,7 +68,8 @@ class ModMenuScreen(vessels: List<ModVessel>) : WindowScreen(newGuiScale = 3) {
             text.onMouseClick {
                 if (selected != text) {
                     selected?.setColor(Color.GRAY.toConstraint())
-                    text.setColor(selectedColor.toConstraint())
+                    val color = if (!isHovered()) selectedColor.toConstraint() else Color.DARK_GRAY.toConstraint()
+                    text.setColor(color)
 
                     modDataContainer.clearChildren()
                     ModComponent(modVessel).constrain {
@@ -85,7 +86,8 @@ class ModMenuScreen(vessels: List<ModVessel>) : WindowScreen(newGuiScale = 3) {
             }
 
             text.onMouseLeave {
-                text.setColor(Color.GRAY.toConstraint())
+                val color = if (selected == text) selectedColor.toConstraint() else Color.GRAY.toConstraint()
+                text.setColor(color)
             }
 
             if (index == 0) {
